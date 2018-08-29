@@ -3,7 +3,48 @@
 .main-content{
   width: $home-width;
   margin: 10px auto;
+  margin-top:50px;
   color: $color-secondary;
+
+  .main-content-header{
+    margin: 15px 5px;
+    color:black;
+    font-size: 1.4em;
+  }
+
+  form{
+    p{
+      margin-top:10px;
+      margin-bottom: 10px;
+    }
+
+    span.required{
+      color:red;  
+      margin-top: 3px;
+    }
+
+    .text{
+      margin: 15px 0;
+      .title{
+        color:black;
+        font-weight: bold;
+      }
+      .content{
+        
+        .radio{
+          display:inline;
+          input{
+            display:inline;
+            width: auto;
+          }
+
+          label{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
 
   input{
     border-radius: $input-border-raduis !important;
