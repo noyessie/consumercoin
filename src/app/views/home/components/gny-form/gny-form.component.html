@@ -1,109 +1,212 @@
 <div class="main-content">
-  <div class="main-content-header">
-    GNY Token Participation Form
-  </div>
-  <div class="main-content-body">
-
-    <form class="" action="index.html" method="post">
-
-
-      <div class="row">
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*First Name">
-        </div>
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*Last Name">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*Gender">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-12">
-          <input type="text" class="form-control form-control-sm" placeholder="*Street Address">
-        </div>
-        <div class="form-group col-12">
-          <input type="text" class="form-control form-control-sm" placeholder="Address Line 2">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*City">
-        </div>
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*State">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*Postal Code">
-        </div>
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*Country">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-12 col-md-6">
-          <input type="text" class="form-control form-control-sm" placeholder="*Nationality">
-        </div>
-        <div class="form-group col-12 col-md-6">
-          <input type="email" class="form-control form-control-sm" placeholder="*Email Address">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-3 col-md-3">
-          <label for="">Date of Birth</label>
-          <input type="text" class="form-control form-control-sm" placeholder="*Date Of Birth">
-        </div>
-      </div>
-
-    </form>
-    <!--
-    <div class="form">
-      <div class="row">
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*First Name"></div>
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*Last Name"></div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-6"><input type="text" placeholder="Gender" required class="input-required"></div>
-      </div>
-      <div class="row">
-        <div class="col-12"><input type="text" placeholder="*Street Adres" required class="input-required"></div>
-      </div>
-      <div class="row">
-        <div class="col-12"><input type="text" placeholder="Address line 2"></div>
-      </div>
-      <div class="row">
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*City"></div>
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*State"></div>
-      </div>
-      <div class="row">
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*Postal / Zip Code"></div>
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*Last Name"></div>
-      </div>
-      <div class="row">
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*Nationality"></div>
-        <div class="col-6"><input type="text" class="input-required" required placeholder="*Email Address"></div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          <label for="">Date of Birth</label>
-          <input type="text" class="input-required">
-        </div>
-      </div>
-    </div> -->
-
-
-
-  </div>
+    <div class="main-content-header">
+        GNY Token Participation Form
+    </div>
+    <div class="main-content-body">
+        <form class="" action="index.html" method="post" [formGroup]="gnyForm" (ngSubmit)="save()">
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" class="form-control form-control-sm" formControlName="FirstName" placeholder="*First Name">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" class="form-control form-control-sm" formControlName="LastName" placeholder="*Last Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" class="form-control form-control-sm" formControlName="Gender" placeholder="*Gender">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12">
+                    <input type="text" class="form-control form-control-sm" formControlName="StreetAddress" placeholder="*Street Address">
+                </div>
+                <div class="form-group col-12">
+                    <input type="text" class="form-control form-control-sm" placeholder="Address Line 2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" class="form-control form-control-sm" formControlName="City" placeholder="*City">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <input formControlName="State" type="text" class="form-control form-control-sm" placeholder="*State">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="Zipcode" class="form-control form-control-sm" placeholder="*Postal Code">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="Nationality" class="form-control form-control-sm" placeholder="*Country">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" formControlName="DateOfBirth" class="form-control form-control-sm" placeholder="*Nationality">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <input type="email" class="form-control form-control-sm" placeholder="*Email Address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-3 col-md-3">
+                    <label for="">Date of Birth</label>
+                    <input type="text" class="form-control form-control-sm" placeholder="*Date Of Birth">
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm">
+            <span class="oi oi-chevron-top"></span>
+            *ID/Passport (JPEG/PNG only)
+            </button>
+            <br>
+            <button type="button" class="btn btn-secondary btn-sm">
+            <span class="oi oi-chevron-top"></span>
+            *Selfie (JPEG/PNG only)
+            </button>
+            <div class="text">
+                <p>Each GNY Token is priced at US$0.08 during Phase 1. This is the equivalent of:</p>
+                <p>0.0000122222120370455 BTC</p>
+                <p>0.000291662109446207 ETH</p>
+                <p>0.0175438596491228 LISK</p>
+                <p>0.380912475835865 XAS</p>
+                <p>Please state the NUMBER of GNY Tokens you would like to Purchase:</p>
+            </div>
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <input type="text" class="form-control form-control-sm" placeholder="*NUMBER OF GNY TOKEN">
+                </div>
+            </div>
+            <div class="text">
+                You can pay for the GNY Tokens in BTC, ETH, LISK and XAS. Please tell us how you're paying below, and the amount you are sending. Please send the EXACT amount. Please include your FULL NAME in the reference field.
+            </div>
+            <div class="text">
+                <div class="title">
+                    BTC Wallet
+                </div>
+                <div class="content">
+                    325WqKF87F7KARmfF2BSq8261oGxVGnrrA
+                </div>
+            </div>
+            <div class="text">
+                <div class="title">
+                    ETH Wallet
+                </div>
+                <div class="content">
+                    0x397FF2427F226969084CB0ca246fC4AbbaE0c235
+                </div>
+            </div>
+            <div class="text">
+                <div class="title">
+                    LISK Wallet
+                </div>
+                <div class="content">
+                    kkkkkkllllllllll11111115555555
+                </div>
+            </div>
+            <div class="text">
+                <div class="title">
+                    XAS Wallet
+                </div>
+                <div class="content">
+                    kkkkkkllllllllll11111115555555
+                </div>
+            </div>
+            <div class="text form">
+                <div class="title">
+                    *Please tell us what you're sending, the sending address and amount.
+                </div>
+                <div class="content">
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked>Bitcoin (BTC)</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked>Ether (ETH)</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked>Lisk (LISK)</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked>Asch (XAS)</label>
+                    </span>
+                </div>
+                Please tell us where to send the GNY Tokens
+                <div class="row">
+                    <div class="form-group col-12">
+                        <input type="text" class="form-control form-control-sm" placeholder="*ETH ADDRESS">
+                    </div>
+                </div>
+            </div>
+            <div class="text form">
+                <div class="title">
+                    *Please tell us what you're sending, the sending address and amount.
+                </div>
+                <div class="content">
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked>Purchase is less than 5BTC</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked>Salary</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> Business Income</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> Dividend</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> Interest</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> Gift</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> Other. Please specify</label>
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="form-group col-12">
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="form">
+                <div class="title">
+                    Risk Warning
+                </div>
+                <div class="content">
+                    Token sales or coin offerings are typically a highly speculative form of investment. Investors should be prepared for the possibility of losing their investment completely. Investment in token sales or coin offerings is not subject to existing capital market regulations and protections.
+                    <br>
+                    <br>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> *I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                    </span>
+                </div>
+            </div>
+            <div class="form">
+                <div class="title">
+                    Data Protection
+                </div>
+                <div class="content">
+                    <p>You (the "Applicant") understand that any information the Applicant provides in relation to any natural person (a "relevant individual") by whatever means in relation to the purchase of tokens from the Issuer or information which may be obtained in relation to any relevant individual from other sources (the "personal data") will be held, controlled and processed by the Issuer and their respective Associates as "data controllers" for the purposes of (as applicable):</p>
+                    <p>(i) the General Data Protection Regulation (2016/679) and any national law issued under that regulation; (ii) the Data Protection (Jersey) Law 2005; and (iii) the Data Protection (Jersey) Law 2018, each as amended from time to time (together, the "Data Protection Laws"). The Applicant is advised to read in detail the Privacy Notice attached at Appendix 1 to the Issuer's Information Memorandum (the "Privacy Notice"), which provides an outline of the Applicant’s data protection rights and the manner and purposes for which personal data relating to relevant individuals may be processed by or on behalf of the Issuer and its respective Associates under the Data Protection Laws as they relate to the Applicant.</p>
+                    <p>
+                        The Privacy Notice should be read together with the Information Memorandum. The Applicant warrants and confirms that: (a) it has all necessary authority to provide the personal data on behalf of each relevant individual; (b) it has and shall continue to comply in all respects with the Data Protection Laws in relation to the disclosure of personal data pursuant to the purchase of tokens from the Issuer; and (c) it will make the Privacy Notice available to each relevant individual and draw their attention to it.
+                    </p>
+                    <br>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> *I understand and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                    </span>
+                    <span class="radio">
+                        <label><input type="radio" name="optradio" checked> *I have read the Information Memorandum and agree to the terms.</label>
+                    </span>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-secondary">
+            Submit
+            </button>
+            
+        </form>
+    </div>
 </div>

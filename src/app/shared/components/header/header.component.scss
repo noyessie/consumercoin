@@ -1,5 +1,29 @@
 @import '~scss/vars';
 
 header{
-  background: $background-color;
+  width:$menu-width;
+  margin: 40px auto;
+  display: flex;
+  align-items: baseline;
+  font-weight: bold;
+  font-size: 1.15em;
+
+
+  .svg{
+  	width: 25%;
+  }
+
+  .menu{
+	flex-grow:1;
+  	ul{
+  		display:flex;
+  		list-style-type: none;
+  		justify-content: space-around;
+  		width:100%;
+
+  		a{
+  			color:black;
+  		}
+  	}
+  }
 }

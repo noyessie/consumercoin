@@ -6,6 +6,7 @@ $color-secondary: #000;
 
 //Home page
 $home-width: 60%;
+$menu-width: 80%;
 
 
 //input
@@ -16,3 +17,7 @@ $input-border-color: $color-secondary-light;
 $input-border-raduis-focused: 4px;
 $input-border-color-focused: rgba(82,135,223,0.7);
 $input-border-shadow-focused: rgba(102,175,233,0.6);
+
+
+//buttons
+$button-background-color: rgb(96, 94, 94);
