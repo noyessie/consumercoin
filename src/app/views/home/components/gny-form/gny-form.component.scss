@@ -1,0 +1,25 @@
+@import '~scss/vars';
+
+.main-content{
+  width: $home-width;
+  margin: 10px auto;
+  color: $color-secondary;
+
+  input{
+    border-radius: $input-border-raduis;
+    width: 100%;
+    box-shadow: none;
+    padding: 6px 12px;
+
+    //when input is focused
+    &:focus{
+      border-radius: $input-border-raduis;
+      border-width: $input-border-width;
+      border-color:$input-border-color-focus;
+    }
+
+  }
+
+
+
+}
