@@ -3,6 +3,12 @@ import { RequestOptions , Headers} from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import 'rxjs/add/operator/toPromise';
 
+export interface GnyResult {
+    FlikResponse: any;
+}
+
+
+
 @Injectable()
 export class GnyService {
 	endpoint = "http://67.207.157.12:8080/genie/api/consumerCoin/new/";
@@ -27,10 +33,13 @@ export class GnyService {
 
     return this.http.post(this.endpoint , formData , options)
     	.toPromise()
-    	.then(success =>{
-    		console.log("success ", (success as any).FlikResponse	);
-				return success;
-
+    	.then(r =>{
+    		let result:GnyResult = r as GnyResult;
+				if(result.FlikResponse.Status.StatusCode == 0){
+					return true;
+				}else{
+					return false;
+				}
     	} , error =>{
     		console.log("error" , error);
     	});
