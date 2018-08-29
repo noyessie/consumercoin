@@ -52,18 +52,25 @@
             <div class="row">
                 <div class="form-group col-3 col-md-3">
                     <label for="">Date of Birth</label>
-                    <input type="text" class="form-control form-control-sm" placeholder="*Date Of Birth">
+                    <input type="text" class="form-control   form-control-sm" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" placeholder="*Date Of Birth" bsDatepicker>
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary btn-sm">
-            <span class="oi oi-chevron-top"></span>
-            *ID/Passport (JPEG/PNG only)
-            </button>
+            <label for="">
+                <input type="file" #passport class="hidden" (change)="change_passport_file($event.target.files)">
+                <button type="button" (click)="passport.click()" class="btn btn-secondary btn-sm">
+                <span class="oi oi-chevron-top"></span>
+                *ID/Passport (JPEG/PNG only)
+                </button>
+            </label>
             <br>
-            <button type="button" class="btn btn-secondary btn-sm">
-            <span class="oi oi-chevron-top"></span>
-            *Selfie (JPEG/PNG only)
-            </button>
+            <label for="">
+                <input type="file" #selfi class="hidden" (change)="change_selfie_file($event.target.files)">
+                <button type="button" (click)="selfi.click()" class="btn btn-secondary btn-sm">
+                <span class="oi oi-chevron-top"></span>
+                *Selfie (JPEG/PNG only)
+                </button>
+            </label>
+
             <div class="text">
                 <p>Each GNY Token is priced at US$0.08 during Phase 1. This is the equivalent of:</p>
                 <p>0.0000122222120370455 BTC</p>
@@ -74,7 +81,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-12 col-md-6">
-                    <input type="text" class="form-control form-control-sm" placeholder="*NUMBER OF GNY TOKEN">
+                    <input type="text" class="form-control form-control-sm" formControlName="NumberOfGNYTokens" placeholder="*NUMBER OF GNY TOKEN">
                 </div>
             </div>
             <div class="text">
@@ -118,55 +125,55 @@
                 </div>
                 <div class="content">
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked>Bitcoin (BTC)</label>
+                        <label><input type="radio" value="Bitcoin (BTC)" formControlName="SendingToGNYCoinType" checked>Bitcoin (BTC)</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked>Ether (ETH)</label>
+                        <label><input type="radio"value="Ether (ETH)" formControlName="SendingToGNYCoinType" checked>Ether (ETH)</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked>Lisk (LISK)</label>
+                        <label><input type="radio" value="Lisk (LISK)" formControlName="SendingToGNYCoinType" checked>Lisk (LISK)</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked>Asch (XAS)</label>
+                        <label><input type="radio" value="Asch (XAS)" formControlName="SendingToGNYCoinType" checked>Asch (XAS)</label>
                     </span>
                 </div>
                 Please tell us where to send the GNY Tokens
                 <div class="row">
                     <div class="form-group col-12">
-                        <input type="text" class="form-control form-control-sm" placeholder="*ETH ADDRESS">
+                        <input type="text" class="form-control form-control-sm" formControlName="SendingToGNYCoinAddress" placeholder="*ETH ADDRESS">
                     </div>
                 </div>
             </div>
             <div class="text form">
                 <div class="title">
-                    <span class="required">*</span>Please tell us what you're sending, the sending address and amount.
+                    <span class="required">*</span>For purchases of over 5BTC, we require that you confirm that the source of funds is one of the following:
                 </div>
                 <div class="content">
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked>Purchase is less than 5BTC</label>
+                        <label><input type="radio" value="Purchase is less than 5BTC" formControlName="SourceOfFunds" checked>Purchase is less than 5BTC</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked>Salary</label>
+                        <label><input type="radio" value="Salary" formControlName="SourceOfFunds" checked>Salary</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> Business Income</label>
+                        <label><input type="radio" value="Business Income" formControlName="SourceOfFunds" checked> Business Income</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> Dividend</label>
+                        <label><input type="radio" value="Dividend" formControlName="SourceOfFunds" checked> Dividend</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> Interest</label>
+                        <label><input type="radio" value="Interest" formControlName="SourceOfFunds" checked> Interest</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> Gift</label>
+                        <label><input type="radio" value="Gift" formControlName="SourceOfFunds" checked> Gift</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> Other. Please specify</label>
+                        <label><input type="radio" value="Other. Please specify" formControlName="SourceOfFunds" checked> Other. Please specify</label>
                     </span>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
-                        <input type="text" class="form-control form-control-sm">
+                        <input type="text" class="form-control form-control-sm" formControlName="SourceOfFundsField">
                     </div>
                 </div>
             </div>
@@ -179,7 +186,7 @@
                     <br>
                     <br>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> <span class="required">*</span>I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                        <label><input type="radio" checked formControlName="RiskWarningYesNo"> <span class="required">*</span>I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
                     </span>
                 </div>
             </div>
@@ -195,18 +202,18 @@
                     </p>
                     <br>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> <span class="required">*</span>I understand and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                        <label><input formControlName="IUnderstandYesNo" type="radio" checked> <span class="required">*</span>I understand and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio" name="optradio" checked> <span class="required">*</span>I have read the Information Memorandum and agree to the terms.</label>
+                        <label><input formControlName="IHaveReadYesNo" type="radio" checked> <span class="required">*</span>I have read the Information Memorandum and agree to the terms.</label>
                     </span>
                 </div>
             </div>
-            
+
             <button type="submit" class="btn btn-secondary">
             Submit
             </button>
-            
+
         </form>
     </div>
 </div>
