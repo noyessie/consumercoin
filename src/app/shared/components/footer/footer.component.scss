@@ -1,0 +1,7 @@
+@import '~scss/vars';
+
+footer{
+	min-height: $footer-height;
+	color: $footer-text-color;
+	background-color: $footer-color;
+}
