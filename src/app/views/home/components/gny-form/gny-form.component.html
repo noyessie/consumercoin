@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="form-group col-3 col-md-3">
                     <label for="">Date of Birth</label>
-                    <input type="text" class="form-control form-control-sm" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" placeholder="*Date Of Birth" bsDatepicker formControlName="DateOfBirth">
+                    <input type="text" class="form-control form-control-sm" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', dateOutputFormat: 'DD-MM-YYYY' }" placeholder="*Date Of Birth" bsDatepicker (bsValueChange)="change_date($event)">
                 </div>
             </div>
             <label for="">
@@ -62,6 +62,14 @@
                 *ID/Passport (JPEG/PNG only)
                 </button>
             </label>
+            <div class="row">
+              <div class="form-group col-12 col-md-6">
+                <input type="text" formControlName="PassportImageType" class="form-control form-control-sm" placeholder="*Password Image Type">
+              </div>
+              <div class="form-group col-12 col-md-6">
+                <input type="email" class="form-control form-control-sm" formControlName="PassportImageReferenceNumber" placeholder="*Password image reference number">
+              </div>
+            </div>
             <br>
             <label for="">
                 <input type="file" #selfi class="hidden" (change)="change_selfie_file($event.target.files)">
@@ -186,7 +194,7 @@
                     <br>
                     <br>
                     <span class="radio">
-                        <label><input type="checkbox" checked formControlName="RiskWarningYesNo" value=0> <span class="required">*</span>I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                        <label><input type="checkbox" checked formControlName="RiskWarningYesNo"> <span class="required">*</span>I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
                     </span>
                 </div>
             </div>

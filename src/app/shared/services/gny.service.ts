@@ -25,10 +25,12 @@ export class GnyService {
 
 		console.log("sended form data" , formData);
 
-    this.http.post(this.endpoint , formData , options)
+    return this.http.post(this.endpoint , formData , options)
     	.toPromise()
     	.then(success =>{
-    		console.log("success ", success);
+    		console.log("success ", (success as any).FlikResponse	);
+				return success;
+
     	} , error =>{
     		console.log("error" , error);
     	});

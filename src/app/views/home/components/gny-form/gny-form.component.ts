@@ -8,6 +8,10 @@ import {
   FormControl
 } from '@angular/forms';
 
+import {
+  Router
+} from '@angular/router';
+
 import { GnyService } from '../../../../shared/services/gny.service';
 
 @Component({
@@ -20,7 +24,8 @@ export class GnyFormComponent implements OnInit {
 	public gnyForm:any;
 
   constructor(
-      private gnyService: GnyService
+      private gnyService: GnyService,
+      private _router:Router
     ) {
   	this.gnyForm = new FormGroup({
   		Gender: new FormControl(''),
@@ -45,6 +50,8 @@ export class GnyFormComponent implements OnInit {
       RiskWarningYesNo: new FormControl(''),
       IHaveReadYesNo: new FormControl(''),
       IUnderstandYesNo: new FormControl(''),
+      PassportImageType: new FormControl(''),
+      PassportImageReferenceNumber: new FormControl(''),
 
 
   	})
@@ -69,14 +76,27 @@ export class GnyFormComponent implements OnInit {
 
   save(){
   	console.log(this.gnyForm.value);
-    console.log(new FormData(this.gnyForm.value));
-    this.gnyService.gny(this.gnyForm.value);
+    this.gnyService.gny(this.gnyForm.value).then((result)=>{
+      console.log(result);
+      if(result){
+        this._router.navigate(['/success'])
+      }
+    });
   }
 
   change_date(date){
-    console.log("change date");
+    console.log("date has change" , date);
+    console.log("change date",date.toLocaleDateString("en-US",{
+      day:"2-digit",
+      month:"2-digit",
+      year:"2-digit"
+    }));
     this.gnyForm.patchValue({
-      DateOfBirth: date
+      DateOfBirth: date.toLocaleDateString("en-US",{
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
+      })
     })
   }
 

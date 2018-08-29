@@ -5,6 +5,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { GnyFormComponent } from './components/gny-form/gny-form.component';
+import { GnySuccessComponent } from './components/gny-success/gny-success.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { GnyFormComponent } from './components/gny-form/gny-form.component';
     ReactiveFormsModule,
     BsDatepickerModule.forRoot()
   ],
-  declarations: [GnyFormComponent]
+  declarations: [GnyFormComponent, GnySuccessComponent]
 })
 export class HomeModule { }
