@@ -5,12 +5,14 @@ $color-secondary-light: #bec6ca;
 $color-secondary: #000;
 
 //Home page
-$home-width: 80%;
+$home-width: 60%;
 
 
 //input
-$input-border-raduis: 5px;
-$input-border-raduis-focused: 1px;
+$input-border-raduis: 10px;
 $input-border-width: 1px;
 $input-border-color: $color-secondary-light;
-$input-border-color-focus: #00F;
+
+$input-border-raduis-focused: 4px;
+$input-border-color-focused: rgba(82,135,223,0.7);
+$input-border-shadow-focused: rgba(102,175,233,0.6);

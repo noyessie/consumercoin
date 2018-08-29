@@ -6,16 +6,16 @@
   color: $color-secondary;
 
   input{
-    border-radius: $input-border-raduis;
+    border-radius: $input-border-raduis !important;
     width: 100%;
-    box-shadow: none;
     padding: 6px 12px;
 
     //when input is focused
     &:focus{
-      border-radius: $input-border-raduis;
-      border-width: $input-border-width;
-      border-color:$input-border-color-focus;
+      border-radius: $input-border-raduis-focused !important;
+      border-width: $input-border-width !important;
+      border-color:$input-border-color-focused !important;
+      box-shadow: inset 0 0 4px $input-border-shadow-focused;
     }
 
   }
