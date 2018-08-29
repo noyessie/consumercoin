@@ -1,11 +1,11 @@
-import { 
+import {
   Component,
-   OnInit 
+   OnInit
 } from '@angular/core';
 
-import { 
+import {
   FormGroup,
-  FormControl 
+  FormControl
 } from '@angular/forms';
 
 import { GnyService } from '../../../../shared/services/gny.service';
@@ -21,13 +21,15 @@ export class GnyFormComponent implements OnInit {
 
   constructor(
       private gnyService: GnyService
-    ) { 
+    ) {
   	this.gnyForm = new FormGroup({
   		Gender: new FormControl(''),
+      Email: new FormControl(''),
   		FirstName: new FormControl(''),
   		LastName: new FormControl(''),
   		StreetAddress: new FormControl(''),
   		City:new FormControl(''),
+  		Country:new FormControl(''),
   		State:new FormControl(''),
   		Zipcode:new FormControl(''),
   		Nationality: new FormControl(''),
@@ -48,7 +50,7 @@ export class GnyFormComponent implements OnInit {
   	})
   }
   ngOnInit() {
-    
+
     console.log("init");
   }
 
@@ -69,6 +71,13 @@ export class GnyFormComponent implements OnInit {
   	console.log(this.gnyForm.value);
     console.log(new FormData(this.gnyForm.value));
     this.gnyService.gny(this.gnyForm.value);
+  }
+
+  change_date(date){
+    console.log("change date");
+    this.gnyForm.patchValue({
+      DateOfBirth: date
+    })
   }
 
 }

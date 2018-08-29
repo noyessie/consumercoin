@@ -38,21 +38,21 @@
                     <input type="text" formControlName="Zipcode" class="form-control form-control-sm" placeholder="*Postal Code">
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <input type="text" formControlName="Nationality" class="form-control form-control-sm" placeholder="*Country">
+                    <input type="text" formControlName="Country" class="form-control form-control-sm" placeholder="*Country">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-12 col-md-6">
-                    <input type="text" formControlName="DateOfBirth" class="form-control form-control-sm" placeholder="*Nationality">
+                    <input type="text" formControlName="Nationality" class="form-control form-control-sm" placeholder="*Nationality">
                 </div>
                 <div class="form-group col-12 col-md-6">
-                    <input type="email" class="form-control form-control-sm" placeholder="*Email Address">
+                    <input type="email" class="form-control form-control-sm" formControlName="Email" placeholder="*Email Address">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-3 col-md-3">
                     <label for="">Date of Birth</label>
-                    <input type="text" class="form-control   form-control-sm" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" placeholder="*Date Of Birth" bsDatepicker>
+                    <input type="text" class="form-control form-control-sm" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" placeholder="*Date Of Birth" bsDatepicker formControlName="DateOfBirth">
                 </div>
             </div>
             <label for="">
@@ -128,7 +128,7 @@
                         <label><input type="radio" value="Bitcoin (BTC)" formControlName="SendingToGNYCoinType" checked>Bitcoin (BTC)</label>
                     </span>
                     <span class="radio">
-                        <label><input type="radio"value="Ether (ETH)" formControlName="SendingToGNYCoinType" checked>Ether (ETH)</label>
+                        <label><input type="radio" value="Ether (ETH)" formControlName="SendingToGNYCoinType" checked>Ether (ETH)</label>
                     </span>
                     <span class="radio">
                         <label><input type="radio" value="Lisk (LISK)" formControlName="SendingToGNYCoinType" checked>Lisk (LISK)</label>
@@ -186,7 +186,7 @@
                     <br>
                     <br>
                     <span class="radio">
-                        <label><input type="radio" checked formControlName="RiskWarningYesNo"> <span class="required">*</span>I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                        <label><input type="checkbox" checked formControlName="RiskWarningYesNo" value=0> <span class="required">*</span>I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
                     </span>
                 </div>
             </div>
@@ -202,10 +202,10 @@
                     </p>
                     <br>
                     <span class="radio">
-                        <label><input formControlName="IUnderstandYesNo" type="radio" checked> <span class="required">*</span>I understand and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                        <label><input formControlName="IUnderstandYesNo" type="checkbox"> <span class="required">*</span>I understand and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
                     </span>
                     <span class="radio">
-                        <label><input formControlName="IHaveReadYesNo" type="radio" checked> <span class="required">*</span>I have read the Information Memorandum and agree to the terms.</label>
+                        <label><input formControlName="IHaveReadYesNo" type="checkbox"> <span class="required">*</span>I have read the Information Memorandum and agree to the terms.</label>
                     </span>
                 </div>
             </div>
