@@ -75,6 +75,9 @@ export class GnyFormComponent implements OnInit {
       IUnderstandYesNo: new FormControl('', [Validators.required]),
       PassportImageType: new FormControl('', [Validators.required]),
       PassportImageReferenceNumber: new FormControl('', [Validators.required]),
+      CoinAddress: new FormControl('',[Validators.required]),
+      CoinAmount: new FormControl('',[Validators.required]),
+      
 
 
   	})

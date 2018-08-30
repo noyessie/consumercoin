@@ -171,6 +171,19 @@
                     </span>
                 </div>
                 <required-error [control]="gnyForm.get('SendingToGNYCoinType')" name="coin type"></required-error>
+
+                <div class="row" *ngIf="!gnyForm.get('SendingToGNYCoinType').invalid">
+                    <div class="form-group col-12 col-md-6">
+                        <input type="text" formControlName="CoinAddress" class="form-control form-control-sm" placeholder="*Coin Address">
+                        <required-error [control]="gnyForm.get('CoinAddress')" name="coin address "></required-error>
+                      </div>
+                      <div class="form-group col-12 col-md-6">
+                        <input type="email" class="form-control form-control-sm" formControlName="CoinAmount" placeholder="*Coin Amount">
+                        <required-error [control]="gnyForm.get('CoinAmount')" name="coin amount"></required-error>
+                      </div>
+                </div>
+
+
                 Please tell us where to send the GNY Tokens
                 <div class="row">
                     <div class="form-group col-12">
