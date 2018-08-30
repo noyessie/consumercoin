@@ -7,19 +7,23 @@
             <div class="row">
                 <div class="form-group col-12 col-md-6">
                     <input type="text" class="form-control form-control-sm" formControlName="FirstName" placeholder="*First Name">
+                    <required-error [control]="gnyForm.get('FirstName')" name="first name"></required-error>
                 </div>
                 <div class="form-group col-12 col-md-6">
                     <input type="text" class="form-control form-control-sm" formControlName="LastName" placeholder="*Last Name">
+                    <required-error [control]="gnyForm.get('LastName')" name="last name"></required-error>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-12 col-md-6">
                     <input type="text" class="form-control form-control-sm" formControlName="Gender" placeholder="*Gender">
+                    <required-error [control]="gnyForm.get('Gender')" name="gender"></required-error>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-12">
                     <input type="text" class="form-control form-control-sm" formControlName="StreetAddress" placeholder="*Street Address">
+                    <required-error [control]="gnyForm.get('StreetAddress')" name="street address"></required-error>
                 </div>
                 <div class="form-group col-12">
                     <input type="text" class="form-control form-control-sm" placeholder="Address Line 2">
@@ -28,20 +32,24 @@
             <div class="row">
                 <div class="form-group col-12 col-md-6">
                     <input type="text" class="form-control form-control-sm" formControlName="City" placeholder="*City">
+                    <required-error [control]="gnyForm.get('City')" name="city"></required-error>
                 </div>
                 <div class="form-group col-12 col-md-6">
                     <input formControlName="State" type="text" class="form-control form-control-sm" placeholder="*State">
+                    <required-error [control]="gnyForm.get('State')" name="state"></required-error>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-12 col-md-6">
                     <input type="text" formControlName="Zipcode" class="form-control form-control-sm" placeholder="*Postal Code">
+                    <required-error [control]="gnyForm.get('Zipcode')" name="postal code"></required-error>
                 </div>
                 <div class="form-group col-12 col-md-6">
                       <select formControlName="Country" class="form-control form-control-sm" required>
                         <option value="">*Country</option>
                         <option *ngFor="let country of countries" [value]="country">{{country}}</option>
                       </select>
+                        <required-error [control]="gnyForm.get('Country')" name="country "></required-error>
                 </div>
             </div>
             <div class="row">
@@ -50,15 +58,21 @@
                         <option value="">*Nationality</option>
                         <option *ngFor="let nationality of nationalities" [value]="nationality">{{nationality}}</option>
                     </select>
+                <required-error [control]="gnyForm.get('Nationality')" name="nationality "></required-error>
+
                 </div>
                 <div class="form-group col-12 col-md-6">
                     <input type="email" class="form-control form-control-sm" formControlName="Email" placeholder="*Email Address">
+                <required-error [control]="gnyForm.get('Email')" name="email "></required-error>
+
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-3 col-md-3">
                     <label for="">Date of Birth</label>
                     <input type="text" class="form-control form-control-sm" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', dateOutputFormat: 'DD-MM-YYYY' }" placeholder="*Date Of Birth" bsDatepicker (bsValueChange)="change_date($event)">
+                <required-error [control]="gnyForm.get('DateOfBirth')" name="Date of birth "></required-error>
+
                 </div>
             </div>
             <label for="">
@@ -67,13 +81,16 @@
                 <span class="oi oi-chevron-top"></span>
                 *ID/Passport (JPEG/PNG only)
                 </button>
+                <required-error [control]="gnyForm.get('PassportIdImage')" name="passport image "></required-error>
             </label>
             <div class="row">
               <div class="form-group col-12 col-md-6">
                 <input type="text" formControlName="PassportImageType" class="form-control form-control-sm" placeholder="*Password Image Type">
+                <required-error [control]="gnyForm.get('PassportImageType')" name="passport image type "></required-error>
               </div>
               <div class="form-group col-12 col-md-6">
                 <input type="email" class="form-control form-control-sm" formControlName="PassportImageReferenceNumber" placeholder="*Password image reference number">
+                <required-error [control]="gnyForm.get('PassportImageReferenceNumber')" name="passport image reference number"></required-error>
               </div>
             </div>
             <br>
@@ -83,6 +100,7 @@
                 <span class="oi oi-chevron-top"></span>
                 *Selfie (JPEG/PNG only)
                 </button>
+                <required-error [control]="gnyForm.get('SelfieImage')" name="passport image "></required-error>
             </label>
 
             <div class="text">
@@ -96,6 +114,7 @@
             <div class="row">
                 <div class="form-group col-12 col-md-6">
                     <input type="text" class="form-control form-control-sm" formControlName="NumberOfGNYTokens" placeholder="*NUMBER OF GNY TOKEN">
+                     <required-error [control]="gnyForm.get('NumberOfGNYTokens')" name="passport image reference number"></required-error>
                 </div>
             </div>
             <div class="text">
@@ -151,10 +170,12 @@
                         <label><input type="radio" value="Asch (XAS)" formControlName="SendingToGNYCoinType" checked>Asch (XAS)</label>
                     </span>
                 </div>
+                <required-error [control]="gnyForm.get('SendingToGNYCoinType')" name="coin type"></required-error>
                 Please tell us where to send the GNY Tokens
                 <div class="row">
                     <div class="form-group col-12">
                         <input type="text" class="form-control form-control-sm" formControlName="SendingToGNYCoinAddress" placeholder="*ETH ADDRESS">
+                        <required-error [control]="gnyForm.get('SendingToGNYCoinAddress')" name="coin address"></required-error>
                     </div>
                 </div>
             </div>
@@ -185,6 +206,7 @@
                         <label><input type="radio" value="Other. Please specify" formControlName="SourceOfFunds" checked> Other. Please specify</label>
                     </span>
                 </div>
+                <required-error [control]="gnyForm.get('SourceOfFunds')" name="coin type"></required-error>
                 <div class="row">
                     <div class="form-group col-12">
                         <input type="text" class="form-control form-control-sm" formControlName="SourceOfFundsField">
@@ -201,6 +223,7 @@
                     <br>
                     <span class="radio">
                         <label><input type="checkbox" checked formControlName="RiskWarningYesNo"> <span class="required">*</span>I understand these risks and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                        <required-error [control]="gnyForm.get('RiskWarningYesNo')" name="accept risk"></required-error>
                     </span>
                 </div>
             </div>
@@ -217,9 +240,11 @@
                     <br>
                     <span class="radio">
                         <label><input formControlName="IUnderstandYesNo" type="checkbox"> <span class="required">*</span>I understand and wish to proceed to purchase tokens or coins from GNY.IO Limited.</label>
+                        <required-error [control]="gnyForm.get('IUnderstandYesNo')" name="understand"></required-error>
                     </span>
                     <span class="radio">
                         <label><input formControlName="IHaveReadYesNo" type="checkbox"> <span class="required">*</span>I have read the Information Memorandum and agree to the terms.</label>
+                        <required-error [control]="gnyForm.get('IHaveReadYesNo')" name="accept"></required-error>
                     </span>
                 </div>
             </div>

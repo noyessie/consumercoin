@@ -1,10 +1,12 @@
 import {
   Component,
-   OnInit
+   OnInit,
+   Input
 } from '@angular/core';
 
 import {
   FormGroup,
+  Validators,
   FormControl
 } from '@angular/forms';
 
@@ -15,6 +17,21 @@ import {
 import { GnyService } from '../../../../shared/services/gny.service';
 import { NationalityService } from '../../../../shared/services/nationality.service';
 import { CountryService } from '../../../../shared/services/country.service';
+
+@Component({
+  selector: 'required-error',
+  template: "<div *ngIf=\"control.invalid && (control.dirty || control.touched)\" style=\"color:red;font-size:0.8em; text-transform:capitalize \"> {{fieldName}} is required </div> ",
+
+})
+export class RequiredErrorComponent implements OnInit{
+
+  @Input() control : FormControl;
+  @Input('name') fieldName : string; 
+
+  ngOnInit(){
+
+  }
+}
 
 @Component({
   selector: 'app-gny-form',
@@ -34,30 +51,30 @@ export class GnyFormComponent implements OnInit {
       private _router:Router
     ) {
   	this.gnyForm = new FormGroup({
-  		Gender: new FormControl(''),
-      Email: new FormControl(''),
-  		FirstName: new FormControl(''),
-  		LastName: new FormControl(''),
-  		StreetAddress: new FormControl(''),
-  		City:new FormControl(''),
-  		Country:new FormControl(''),
-  		State:new FormControl(''),
-  		Zipcode:new FormControl(''),
-  		Nationality: new FormControl(''),
-  		DateOfBirth : new FormControl(''),
-      PassportIdImage: new FormControl(''),
-      SelfieImage: new FormControl(''),
-      NumberOfGNYTokens: new FormControl(''),
-      SendingToGNYCoinAmount: new FormControl(''),
-      SendingToGNYCoinType: new FormControl(''),
-      SendingToGNYCoinAddress: new FormControl(''),
-      SourceOfFunds: new FormControl(''),
-      SourceOfFundsField: new FormControl(''),
-      RiskWarningYesNo: new FormControl(''),
-      IHaveReadYesNo: new FormControl(''),
-      IUnderstandYesNo: new FormControl(''),
-      PassportImageType: new FormControl(''),
-      PassportImageReferenceNumber: new FormControl(''),
+  		Gender: new FormControl('', [Validators.required]),
+      Email: new FormControl('', [Validators.required]),
+  		FirstName: new FormControl('', [Validators.required]),
+  		LastName: new FormControl('', [Validators.required]),
+  		StreetAddress: new FormControl('', [Validators.required]),
+  		City:new FormControl('', [Validators.required]),
+  		Country:new FormControl('', [Validators.required]),
+  		State:new FormControl('', [Validators.required]),
+  		Zipcode:new FormControl('', [Validators.required]),
+  		Nationality: new FormControl('', [Validators.required]),
+  		DateOfBirth : new FormControl('', [Validators.required]),
+      PassportIdImage: new FormControl('', [Validators.required]),
+      SelfieImage: new FormControl('', [Validators.required]),
+      NumberOfGNYTokens: new FormControl('', [Validators.required]),
+      SendingToGNYCoinAmount: new FormControl('', [Validators.required]),
+      SendingToGNYCoinType: new FormControl('', [Validators.required]),
+      SendingToGNYCoinAddress: new FormControl('', [Validators.required]),
+      SourceOfFunds: new FormControl('', [Validators.required]),
+      SourceOfFundsField: new FormControl('', [Validators.required]),
+      RiskWarningYesNo: new FormControl('', [Validators.required]),
+      IHaveReadYesNo: new FormControl('', [Validators.required]),
+      IUnderstandYesNo: new FormControl('', [Validators.required]),
+      PassportImageType: new FormControl('', [Validators.required]),
+      PassportImageReferenceNumber: new FormControl('', [Validators.required]),
 
 
   	})
