@@ -10,6 +10,8 @@ import { NormalLayoutComponent } from './layout/';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { GnyService } from './shared/services/gny.service';
+import { NationalityService } from './shared/services/nationality.service';
+import { CountryService } from './shared/services/country.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,11 @@ import { GnyService } from './shared/services/gny.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [GnyService],
+  providers: [
+    GnyService,
+    NationalityService,
+    CountryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

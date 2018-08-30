@@ -13,6 +13,8 @@ import {
 } from '@angular/router';
 
 import { GnyService } from '../../../../shared/services/gny.service';
+import { NationalityService } from '../../../../shared/services/nationality.service';
+import { CountryService } from '../../../../shared/services/country.service';
 
 @Component({
   selector: 'app-gny-form',
@@ -22,9 +24,13 @@ import { GnyService } from '../../../../shared/services/gny.service';
 export class GnyFormComponent implements OnInit {
 
 	public gnyForm:any;
+  public countries : Array<String>;
+  public nationalities : Array<String>;
 
   constructor(
       private gnyService: GnyService,
+      private countryService: CountryService,
+      private nationalityService: NationalityService,
       private _router:Router
     ) {
   	this.gnyForm = new FormGroup({
@@ -57,6 +63,8 @@ export class GnyFormComponent implements OnInit {
   	})
   }
   ngOnInit() {
+    this.countries = this.countryService.list();
+    this.nationalities = this.nationalityService.list();
 
     console.log("init");
   }
